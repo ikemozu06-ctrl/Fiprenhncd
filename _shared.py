@@ -33,9 +33,32 @@ def load_data(mode: str):
     return run(mode=mode)
 
 
+def data_mode_selector():
+    """
+    Compact sidebar data-source control for the AGOI data pages.
+    Live is the default; demo/mixed states are labelled clearly but briefly.
+    """
+    labels = {"live": "Live World Bank", "mix": "Live + gap-fill", "demo": "Demo / offline"}
+    mode = st.sidebar.radio("Data source", options=list(labels), index=0,
+                            format_func=labels.get, key="data_mode",
+                            help="Live mode excludes synthetic and demo-filled values.")
+    return mode
+
+
+def data_note(meta: dict):
+    """One-line data-status note. Kept short; details sit in the expander."""
+    m = meta.get("data_mode")
+    if m == "live":
+        st.success(f"Live World Bank data · {meta['n_countries']} countries", icon="✅")
+    elif m == "mix":
+        st.warning("Live data with demo-filled gaps — flagged values are not measurements.", icon="⚠️")
+    else:
+        st.error("Demo data — not real measurements. Not for investment or policy decisions.", icon="🚨")
+
+
 def get_data():
-    """Load data using the mode chosen on the main page (defaults to mix)."""
-    mode = st.session_state.get("data_mode", "mix")
+    """Load data using the mode chosen in the sidebar (defaults to live)."""
+    mode = st.session_state.get("data_mode", "live")
     return load_data(mode)
 
 

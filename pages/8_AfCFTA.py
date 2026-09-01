@@ -40,14 +40,8 @@ st.caption("ECOWAS vertical slice — Nigeria, Ghana, Côte d'Ivoire, Benin, Tog
 grade = el.confidence_grade()
 counts = el.matrix_provenance_summary()
 if grade == "PLACEHOLDER":
-    st.error(
-        "🔬 **SCENARIO EXPLORER — NOT A FORECASTER.** "
-        f"All {counts['assumed']} elasticity coefficients are **structural placeholders**, not "
-        "empirical estimates. Outputs show the *shape* of a policy response, never its true "
-        "magnitude. Results are reported as **ranges**, and the ranges are wide because the "
-        "uncertainty is real. Do not cite these numbers as findings. "
-        "See the *Elasticity governance* tab for the research plan that replaces them."
-    )
+    st.warning("Scenario explorer, not a forecaster. Elasticities are structural placeholders; "
+               "results are ranges showing direction, not magnitude.", icon="🔬")
 elif grade == "MIXED":
     st.warning(f"⚠️ Elasticity matrix partially grounded — {counts['assumed']} coefficients "
                "remain placeholders. Treat affected outputs as scenarios, not forecasts.")

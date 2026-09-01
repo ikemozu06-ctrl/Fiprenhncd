@@ -24,11 +24,12 @@ def _bootstrap_agoi_path():
             sys.path.insert(0, extra)
 
 _bootstrap_agoi_path()
-from _shared import get_data, band_pill, inject_css   # noqa: E402
+from _shared import data_mode_selector, get_data, band_pill, inject_css   # noqa: E402
 from agoi import config                                # noqa: E402
 
 st.set_page_config(page_title="Country profile · AGOI™", page_icon="🌍", layout="wide")
 inject_css()
+data_mode_selector()
 st.title("📋 Country profile")
 
 scores, audit, meta = get_data()

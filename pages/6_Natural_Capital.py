@@ -36,11 +36,8 @@ inject_css()
 st.title("🌿 Natural Capital — Map, Value, Screen")
 st.caption("Locate ecological assets → price their ecosystem services → screen projects with FIPRE")
 
-st.warning("🔬 **Framework with proxy data.** Asset magnitudes and valuations are "
-           "order-of-magnitude figures from public literature, reported as **ranges**. "
-           "They are honest planning figures, not audited reserves or price quotes. "
-           "Replace with primary survey / biomass / geothermal-atlas data before "
-           "underwriting. Every asset carries a provenance note.")
+st.warning("Valuations are order-of-magnitude planning figures shown as ranges, not audited "
+           "reserves. Each asset carries a provenance note.", icon="⚠️")
 
 tab1, tab2, tab3 = st.tabs(["🗺️ Asset map", "💰 Valuation", "🎯 FIPRE screen"])
 

@@ -36,10 +36,8 @@ inject_css()
 st.title("🇳🇬 AGOI State Dashboard")
 st.caption("36 states + FCT scored on the six AGOI pillars — from real, cited subnational data")
 
-st.success("✅ **Real sourced data.** Climate governance (SPP Nigeria) · solar resource "
-           "(Global Solar Atlas) · flood risk · HDI (Global Data Lab / UNDP) · Womanity Index "
-           "(Invictus Africa) · InfraCredit projects · state budgets. This replaces the "
-           "synthetic state model flagged as a defect in Technical Manual v1.0.")
+st.success("Real sourced data — SPP Nigeria, Global Solar Atlas, Global Data Lab/UNDP, "
+           "Invictus Africa, InfraCredit.", icon="✅")
 
 rows = as_rows()
 df = pd.DataFrame(rows)
